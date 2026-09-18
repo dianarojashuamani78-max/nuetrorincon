@@ -38,7 +38,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas Flotante */
 #particleCanvas {
   position: fixed;
   top: 0;
@@ -49,7 +48,6 @@ body {
   z-index: 99;
 }
 
-/* --- Pantalla de Bloqueo --- */
 #loginOverlay {
   position: fixed;
   top: 0;
@@ -131,7 +129,6 @@ body {
 
 #mainContent { display: none; }
 
-/* --- Hero Section --- */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -188,7 +185,6 @@ h1 {
 
 .subtitle { font-size: clamp(16px, 2.5vw, 24px); font-style: italic; color: #f7e7e9; }
 
-/* Contador de Tiempo */
 .time-counter {
   display: flex;
   justify-content: center;
@@ -257,7 +253,6 @@ h2::after {
   color: #5c353f;
 }
 
-/* --- Scratch Card (Rasca y Gana Dinámico) --- */
 .scratch-container {
   max-width: 400px;
   margin: 0 auto 40px;
@@ -314,7 +309,6 @@ h2::after {
   transform: translateY(-2px);
 }
 
-/* --- Mapa de Coordenadas --- */
 .map-card {
   background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
   border: 2px solid var(--gold);
@@ -375,7 +369,6 @@ h2::after {
   transform: translateY(-2px);
 }
 
-/* --- Cápsula del Tiempo --- */
 .capsule-card {
   background: white;
   border-radius: 20px;
@@ -386,8 +379,18 @@ h2::after {
   margin: 0 auto;
 }
 
+.capsule-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+}
+
 .capsule-list {
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: left;
 }
 
@@ -403,7 +406,6 @@ h2::after {
   align-items: center;
 }
 
-/* --- Layout Historia + Calendario --- */
 .history-calendar-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -411,7 +413,6 @@ h2::after {
   align-items: start;
 }
 
-/* --- Calendario Compacto --- */
 .calendar-card {
   background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
   border: 2px solid var(--gold);
@@ -484,7 +485,6 @@ h2::after {
   transform: scale(1.05);
 }
 
-/* --- Galería Ilustrada --- */
 .themed-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -523,7 +523,6 @@ h2::after {
   margin: 0;
 }
 
-/* --- Cartas Interactivas --- */
 .card {
   background: rgba(255, 255, 255, 0.92);
   padding: 25px;
@@ -535,7 +534,6 @@ h2::after {
 
 .date { color: var(--rose); font-weight: 600; letter-spacing: 2px; font-size: 13px; }
 
-/* --- FLIP CARD --- */
 .flip-card {
   background-color: transparent;
   perspective: 1000px;
@@ -611,7 +609,6 @@ h2::after {
   margin: 0;
 }
 
-/* --- MARCOS ELEGANTES PARA FOTOS --- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -679,7 +676,6 @@ h2::after {
   border: 1px solid rgba(217, 180, 123, 0.4);
 }
 
-/* --- MARCOS ELEGANTES PARA VIDEOS --- */
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -717,7 +713,6 @@ h2::after {
   object-fit: cover;
 }
 
-/* --- Lightbox Visualizador Fullscreen --- */
 .media-lightbox {
   position: fixed;
   inset: 0;
@@ -784,7 +779,6 @@ h2::after {
   font-style: italic;
 }
 
-/* --- Sobre Romántico Interactivo --- */
 .envelope-wrapper {
   max-width: 750px;
   margin: 0 auto;
@@ -844,7 +838,22 @@ h2::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Reproductor Vinilo Personalizado */
+.action-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
+  color: var(--deep);
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+}
+
 .music-card {
   background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
   color: white;
@@ -981,7 +990,6 @@ footer {
         📍 -12.068105, -77.0436659
       </div>
 
-      <!-- Vista previa del Mapa Interactivo -->
       <div class="map-preview-wrapper">
         <iframe 
           src="https://maps.google.com/maps?q=-12.068105,-77.0436659&z=16&output=embed" 
@@ -1116,9 +1124,12 @@ footer {
   <!-- CÁPSULA DEL TIEMPO / METAS FUTURAS -->
   <section>
     <h2>Cápsula del Tiempo & Sueños Juntas 🎈</h2>
-    <p class="lead">Nuestros deseos y metas guardados para el futuro.</p>
+    <p class="lead">Escribe un deseo o meta para el futuro. Quedará guardado en este rincón.</p>
     
     <div class="capsule-card">
+      <input type="text" class="capsule-input" id="capsuleInput" placeholder="Ej: Viajar juntas a la playa, ver la película...">
+      <button type="button" class="action-btn" onclick="addCapsuleGoal()">Guardar en la Cápsula ✨</button>
+
       <div class="capsule-list" id="capsuleList"></div>
     </div>
   </section>
@@ -1128,7 +1139,27 @@ footer {
     <h2>Nuestros recuerdos 📸</h2>
     <p class="lead">Haz clic o toca cualquier imagen para ampliarla en alta definición.</p>
     
-    <div class="gallery" id="photoGallery"></div>
+    <div class="gallery" id="photoGallery">
+      <!-- Fotos estáticas o cargadas internamente -->
+      <div class="photo-card" onclick="openLightbox('img1.jpg', false, 'Nuestro recuerdo en foto ❤️')">
+        <div class="photo-card-img-wrapper">
+          <img src="img1.jpg" alt="Foto 1">
+        </div>
+        <div class="photo-badge">🔍</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox('img2.jpg', false, 'Nuestro recuerdo en foto ❤️')">
+        <div class="photo-card-img-wrapper">
+          <img src="img2.jpg" alt="Foto 2">
+        </div>
+        <div class="photo-badge">🔍</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox('img3.jpg', false, 'Nuestro recuerdo en foto ❤️')">
+        <div class="photo-card-img-wrapper">
+          <img src="img3.jpg" alt="Foto 3">
+        </div>
+        <div class="photo-badge">🔍</div>
+      </div>
+    </div>
   </section>
 
   <!-- GALERÍA DE VIDEOS INTERACTIVA -->
@@ -1136,7 +1167,14 @@ footer {
     <h2>Momentos en movimiento 🎬</h2>
     <p class="lead">Toca cualquier video para reproducirlo a pantalla completa.</p>
 
-    <div class="video-grid" id="videoGallery"></div>
+    <div class="video-grid" id="videoGallery">
+      <!-- Video estático cargado internamente -->
+      <div class="video-card" onclick="openLightbox('video1.mp4', true, 'Nuestro recuerdo en video 🎬')">
+        <div class="video-container">
+          <video src="video1.mp4" preload="metadata"></video>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CARTA ROMÁNTICA RENOVADA (SOBRE INTERACTIVO) -->
@@ -1152,11 +1190,11 @@ footer {
         
         <div class="letter-content" id="letterContent" onclick="event.stopPropagation()">
           <p>Mi amor:</p>
-          <p>Quiero que sepas lo importante que eres para mí. Hemos pasado por tantas cosas para llegar hasta aquí, y cuando miro todo lo que hemos vivido, me doy cuenta de cuánto significas para mí.</p>
+          <p>Quiero que sepas lo importante que eres para mí. Hemos pasado por tantas cosas para llegar hasta aquí, y cuando miro todo lo que hemos vivido, me me doy cuenta de cuánto significas para mí.</p>
           <p>Hubo un momento en el que sentí que casi te perdía, que casi nos perdíamos, y ese sentimiento es algo que nunca más en mi vida deseo volver a sentir. Me hizo entender cuánto te amo y cuánto deseo cuidar lo nuestro. No quiero dar por sentado tu amor ni nuestra relación; quiero aprender a amarte cada día mejor, entenderte, escucharte, tener paciencia contigo y demostrarte con hechos todo lo que siento.</p>
           <p>Me llena de un orgullo gigante ver cómo te esfuerzas y con cuánta empatía y dedicación te formas cada día. No tengo ni la menor duda de que vas a ser la mejor psicóloga del mundo. Tu sensibilidad para entender el alma humana y la luz que transmites sanan incluso antes de hablar. Sé que vas a transformar muchísimas vidas, tal como transformaste la mía desde el primer día. Y quiero estar ahí para verte cumplir cada uno de tus sueños, acompañarte en cada logro y recordarte siempre lo increíble que eres.</p>
           <p>Sé que no somos perfectos y que todavía tenemos mucho por aprender, pero quiero hacerlo contigo. Quiero seguir creciendo a tu lado, superar juntos lo que venga y disfrutar de cada momento que podamos compartir.</p>
-          <p>En serio, churra, te amo demasiado. ❤️ A veces siento que las palabras no me alcanzan para explicarte todo lo que hay en mi corazón, pero quiero que nunca dudes de lo mucho que significas para mí.</p>
+          <p>En serio, churra, te amo demasiado. ❤️ A veces siento que las palabras no me alcanzan para explicarte todo lo que hay en mi corazón, pero quiero que nunca dudas de lo mucho que significas para mí.</p>
           <p>Después de todo lo que hemos pasado, solo quiero seguir eligiéndote, cuidándote y construyendo nuestra historia contigo. Porque si algo tengo claro, es que no quiero volver a imaginar una vida en la que tú no estés.</p>
           <p>Te amo muchísimo, churra. Y deseo de corazón que podamos seguir encontrándonos, incluso en los momentos difíciles.</p>
         </div>
@@ -1173,8 +1211,10 @@ footer {
       </div>
       <h3 style="font-family:'Playfair Display'; font-size:24px; margin:0;">En un solo día</h3>
       <p style="color: var(--gold); font-size: 14px; margin-top: 5px; margin-bottom: 20px;">Morat</p>
-      
-      <div id="player" style="margin-top:15px"></div>
+
+      <div id="player" style="margin-top:15px">
+        <audio id="mainAudio" controls style="width: 100%;" src="cancion.mp3"></audio>
+      </div>
     </div>
   </section>
 
@@ -1223,8 +1263,8 @@ function validateAndUnlock(e) {
     initParticles();
     initScratchCard();
     loadCapsuleGoals();
+    initAudioVinyl();
     setInterval(updateCounter, 60000);
-    setTimeout(initIndexedDB, 100);
   } else {
     errorMsg.style.display = "block";
   }
@@ -1280,7 +1320,6 @@ function renderCalendar() {
   }
 }
 
-/* --- ANIMACIÓN DE PARTÍCULAS --- */
 function initParticles() {
   const canvas = document.getElementById('particleCanvas');
   const ctx = canvas.getContext('2d');
@@ -1320,7 +1359,6 @@ function initParticles() {
   animate();
 }
 
-/* --- RASCA Y GANA DINÁMICO --- */
 const scratchMessages = [
   { icon: "🌻❤️", title: "¡Promesa de Amor!", text: "Prometo estar siempre a tu lado, cuidando de ti y de tus sueños." },
   { icon: "✨👩‍⚕️", title: "Orgullo Absoluto", text: "Vas a ser la mejor psicóloga del mundo. Admiro tu hermosa empatía." },
@@ -1410,17 +1448,35 @@ function resetScratchCard() {
   document.getElementById('scratchResetBtn').style.display = 'none';
 }
 
-/* --- CÁPSULA DEL TIEMPO --- */
+function addCapsuleGoal() {
+  const input = document.getElementById('capsuleInput');
+  const val = input.value.trim();
+  if (!val) return;
+
+  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
+  goals.push(val);
+  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
+  input.value = '';
+  loadCapsuleGoals();
+}
+
 function loadCapsuleGoals() {
   const list = document.getElementById('capsuleList');
   const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
   list.innerHTML = '';
-  goals.forEach((goal) => {
+  goals.forEach((goal, idx) => {
     const item = document.createElement('div');
     item.className = 'capsule-item';
-    item.innerHTML = `<span>✨ ${goal}</span>`;
+    item.innerHTML = `<span>✨ ${goal}</span> <small style="cursor:pointer; opacity:0.6" onclick="removeCapsuleGoal(${idx})">✕</small>`;
     list.appendChild(item);
   });
+}
+
+function removeCapsuleGoal(idx) {
+  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
+  goals.splice(idx, 1);
+  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
+  loadCapsuleGoals();
 }
 
 function openLightbox(mediaSrc, isVideo, caption = "Nuestros momentos especiales ✨") {
@@ -1463,94 +1519,14 @@ function openLetter() {
   }
 }
 
-const dbName = "GinaBetsabeDB";
-let db;
-
-function initIndexedDB() {
-  if (!window.indexedDB) return;
-  try {
-    const request = indexedDB.open(dbName, 1);
-    request.onupgradeneeded = (e) => {
-      db = e.target.result;
-      if (!db.objectStoreNames.contains("media")) {
-        db.createObjectStore("media", { keyPath: "id", autoIncrement: true });
-      }
-    };
-    request.onsuccess = (e) => {
-      db = e.target.result;
-      loadStoredMedia();
-    };
-  } catch(e) {}
-}
-
-function loadStoredMedia() {
-  if (!db) return;
-  const transaction = db.transaction(["media"], "readonly");
-  const store = transaction.objectStore("media");
-  store.openCursor().onsuccess = (e) => {
-    const cursor = e.target.result;
-    if (cursor) {
-      if (cursor.value.type === 'audio') {
-        renderAudioPlayer(cursor.value.file);
-      } else {
-        renderMediaItem(cursor.value.type, cursor.value.file, cursor.key);
-      }
-      cursor.continue();
-    }
-  };
-}
-
-function renderMediaItem(type, file, id) {
-  const isImage = type === 'image';
-  const gallery = document.getElementById(isImage ? 'photoGallery' : 'videoGallery');
-  const objectUrl = URL.createObjectURL(file);
-  
-  const box = document.createElement('div');
-  box.className = isImage ? 'photo-card' : 'video-card';
-
-  if (isImage) {
-    const wrapper = document.createElement('div');
-    wrapper.className = 'photo-card-img-wrapper';
-
-    const img = document.createElement('img');
-    img.src = objectUrl;
-    wrapper.appendChild(img);
-    box.appendChild(wrapper);
-    
-    const badge = document.createElement('div');
-    badge.className = 'photo-badge';
-    badge.innerHTML = '🔍';
-    box.appendChild(badge);
-
-    box.onclick = () => openLightbox(objectUrl, false, "Nuestro recuerdo en foto ❤️");
-  } else {
-    const container = document.createElement('div');
-    container.className = 'video-container';
-    const video = document.createElement('video');
-    video.src = objectUrl;
-    container.appendChild(video);
-    box.appendChild(container);
-
-    box.onclick = () => openLightbox(objectUrl, true, "Nuestro recuerdo en video 🎬");
-  }
-
-  gallery.appendChild(box);
-}
-
-function renderAudioPlayer(file) {
-  const p = document.getElementById('player');
+function initAudioVinyl() {
+  const audio = document.getElementById('mainAudio');
   const vinyl = document.getElementById('vinylDisc');
-  p.innerHTML = '';
-  
-  const a = document.createElement('audio');
-  a.controls = true;
-  a.style.width = '100%';
-  a.src = URL.createObjectURL(file);
-  
-  a.onplay = () => vinyl.style.animationPlayState = 'running';
-  a.onpause = () => vinyl.style.animationPlayState = 'paused';
 
-  p.appendChild(a);
+  if (audio && vinyl) {
+    audio.onplay = () => vinyl.style.animationPlayState = 'running';
+    audio.onpause = () => vinyl.style.animationPlayState = 'paused';
+  }
 }
 </script>
 </body>
