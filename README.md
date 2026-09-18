@@ -1,27 +1,12 @@
-# Gina & Betsabé — Galería sincronizada
+# Gina & Betsabé ❤️
 
-Esta versión conserva el HTML y el diseño original y cambia el almacenamiento de la galería para usar Firebase.
+Sitio web estático listo para publicar con GitHub Pages.
 
-## Resultado
+## Publicar
+1. Crea un repositorio en GitHub.
+2. Sube `index.html` (y este README si deseas).
+3. En **Settings → Pages**, selecciona **Deploy from a branch**.
+4. Elige la rama `main` y la carpeta `/ (root)`.
+5. Guarda y espera a que GitHub Pages publique el sitio.
 
-Una persona puede subir una foto o video y la otra persona puede verlo desde otro dispositivo. Ambos dispositivos reciben los cambios mediante Firestore en tiempo real.
-
-## Configuración necesaria
-
-1. Crear un proyecto en Firebase.
-2. Registrar una aplicación Web.
-3. Activar Authentication > Anonymous.
-4. Crear Firestore Database.
-5. Crear Storage.
-6. Copiar la configuración de la aplicación Web en `firebase-config.js`.
-7. Aplicar `firestore.rules` y `storage.rules`.
-8. Subir todos los archivos a la raíz del repositorio de GitHub Pages.
-
-## Archivos
-
-- `index.html`
-- `firebase-config.js`
-- `firestore.rules`
-- `storage.rules`
-- `README.md`
-- `.gitignore`
+> Nota: el sitio usa recursos externos (Google Fonts, Unsplash, Google Maps y otros enlaces incluidos en el HTML), por lo que necesita conexión a Internet para mostrarlos.

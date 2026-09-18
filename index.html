@@ -386,18 +386,8 @@ h2::after {
   margin: 0 auto;
 }
 
-.capsule-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
-  margin-bottom: 12px;
-  font-family: 'Montserrat', sans-serif;
-  outline: none;
-}
-
 .capsule-list {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: left;
 }
 
@@ -727,29 +717,6 @@ h2::after {
   object-fit: cover;
 }
 
-.delete-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: rgba(43, 7, 18, 0.85);
-  color: white;
-  border: 1px solid rgba(217, 180, 123, 0.5);
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
-  font-size: 16px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-
-.delete-btn:hover {
-  background: var(--wine-light);
-}
-
 /* --- Lightbox Visualizador Fullscreen --- */
 .media-lightbox {
   position: fixed;
@@ -877,25 +844,6 @@ h2::after {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.uploads { text-align: center; margin-top: 20px; }
-input[type=file] { display: none; }
-
-.upload-label, .action-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, var(--gold) 0%, #c49a5b 100%);
-  color: var(--deep);
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 25px;
-  cursor: pointer;
-  border: none;
-  transition: transform 0.2s ease;
-}
-
-.upload-label:hover, .action-btn:hover {
-  transform: translateY(-2px);
-}
-
 /* Reproductor Vinilo Personalizado */
 .music-card {
   background: linear-gradient(135deg, var(--deep) 0%, var(--wine) 100%);
@@ -953,13 +901,6 @@ footer {
   .hero-flower { display: none; }
 }
 </style>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-storage-compat.js"></script>
-<script src="./firebase-config.js"></script>
-
 </head>
 <body>
 
@@ -1175,12 +1116,9 @@ footer {
   <!-- CÁPSULA DEL TIEMPO / METAS FUTURAS -->
   <section>
     <h2>Cápsula del Tiempo & Sueños Juntas 🎈</h2>
-    <p class="lead">Escribe un deseo o meta para el futuro. Quedará guardado en este rincón.</p>
+    <p class="lead">Nuestros deseos y metas guardados para el futuro.</p>
     
     <div class="capsule-card">
-      <input type="text" class="capsule-input" id="capsuleInput" placeholder="Ej: Viajar juntas a la playa, ver la película...">
-      <button type="button" class="action-btn" onclick="addCapsuleGoal()">Guardar en la Cápsula ✨</button>
-
       <div class="capsule-list" id="capsuleList"></div>
     </div>
   </section>
@@ -1191,11 +1129,6 @@ footer {
     <p class="lead">Haz clic o toca cualquier imagen para ampliarla en alta definición.</p>
     
     <div class="gallery" id="photoGallery"></div>
-    
-    <div class="uploads">
-      <label class="upload-label" for="photos">✨ Agregar fotos</label>
-      <input id="photos" type="file" accept="image/*" multiple>
-    </div>
   </section>
 
   <!-- GALERÍA DE VIDEOS INTERACTIVA -->
@@ -1204,11 +1137,6 @@ footer {
     <p class="lead">Toca cualquier video para reproducirlo a pantalla completa.</p>
 
     <div class="video-grid" id="videoGallery"></div>
-    
-    <div class="uploads">
-      <label class="upload-label" for="videos">🎬 Agregar videos</label>
-      <input id="videos" type="file" accept="video/*" multiple>
-    </div>
   </section>
 
   <!-- CARTA ROMÁNTICA RENOVADA (SOBRE INTERACTIVO) -->
@@ -1224,7 +1152,7 @@ footer {
         
         <div class="letter-content" id="letterContent" onclick="event.stopPropagation()">
           <p>Mi amor:</p>
-          <p>Quiero que sepas lo importante que eres para mí. Hemos pasado por tantas cosas para llegar hasta aquí, y cuando miro todo lo que hemos vivido, me me doy cuenta de cuánto significas para mí.</p>
+          <p>Quiero que sepas lo importante que eres para mí. Hemos pasado por tantas cosas para llegar hasta aquí, y cuando miro todo lo que hemos vivido, me doy cuenta de cuánto significas para mí.</p>
           <p>Hubo un momento en el que sentí que casi te perdía, que casi nos perdíamos, y ese sentimiento es algo que nunca más en mi vida deseo volver a sentir. Me hizo entender cuánto te amo y cuánto deseo cuidar lo nuestro. No quiero dar por sentado tu amor ni nuestra relación; quiero aprender a amarte cada día mejor, entenderte, escucharte, tener paciencia contigo y demostrarte con hechos todo lo que siento.</p>
           <p>Me llena de un orgullo gigante ver cómo te esfuerzas y con cuánta empatía y dedicación te formas cada día. No tengo ni la menor duda de que vas a ser la mejor psicóloga del mundo. Tu sensibilidad para entender el alma humana y la luz que transmites sanan incluso antes de hablar. Sé que vas a transformar muchísimas vidas, tal como transformaste la mía desde el primer día. Y quiero estar ahí para verte cumplir cada uno de tus sueños, acompañarte en cada logro y recordarte siempre lo increíble que eres.</p>
           <p>Sé que no somos perfectos y que todavía tenemos mucho por aprender, pero quiero hacerlo contigo. Quiero seguir creciendo a tu lado, superar juntos lo que venga y disfrutar de cada momento que podamos compartir.</p>
@@ -1246,8 +1174,6 @@ footer {
       <h3 style="font-family:'Playfair Display'; font-size:24px; margin:0;">En un solo día</h3>
       <p style="color: var(--gold); font-size: 14px; margin-top: 5px; margin-bottom: 20px;">Morat</p>
       
-      <label class="upload-label" for="audio">🎵 Cargar archivo audio</label>
-      <input id="audio" type="file" accept="audio/*">
       <div id="player" style="margin-top:15px"></div>
     </div>
   </section>
@@ -1298,7 +1224,7 @@ function validateAndUnlock(e) {
     initScratchCard();
     loadCapsuleGoals();
     setInterval(updateCounter, 60000);
-    initCloudGallery();
+    setTimeout(initIndexedDB, 100);
   } else {
     errorMsg.style.display = "block";
   }
@@ -1485,35 +1411,16 @@ function resetScratchCard() {
 }
 
 /* --- CÁPSULA DEL TIEMPO --- */
-function addCapsuleGoal() {
-  const input = document.getElementById('capsuleInput');
-  const val = input.value.trim();
-  if (!val) return;
-
-  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
-  goals.push(val);
-  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
-  input.value = '';
-  loadCapsuleGoals();
-}
-
 function loadCapsuleGoals() {
   const list = document.getElementById('capsuleList');
   const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
   list.innerHTML = '';
-  goals.forEach((goal, idx) => {
+  goals.forEach((goal) => {
     const item = document.createElement('div');
     item.className = 'capsule-item';
-    item.innerHTML = `<span>✨ ${goal}</span> <small style="cursor:pointer; opacity:0.6" onclick="removeCapsuleGoal(${idx})">✕</small>`;
+    item.innerHTML = `<span>✨ ${goal}</span>`;
     list.appendChild(item);
   });
-}
-
-function removeCapsuleGoal(idx) {
-  const goals = JSON.parse(localStorage.getItem('gb_capsule_goals') || '[]');
-  goals.splice(idx, 1);
-  localStorage.setItem('gb_capsule_goals', JSON.stringify(goals));
-  loadCapsuleGoals();
 }
 
 function openLightbox(mediaSrc, isVideo, caption = "Nuestros momentos especiales ✨") {
@@ -1556,183 +1463,95 @@ function openLetter() {
   }
 }
 
+const dbName = "GinaBetsabeDB";
+let db;
 
-// --- GALERÍA COMPARTIDA EN LA NUBE (Firebase) ---
-let cloudGalleryStarted = false;
-let firebaseReady = false;
-
-async function initCloudGallery() {
-  if (cloudGalleryStarted) return;
-  cloudGalleryStarted = true;
+function initIndexedDB() {
+  if (!window.indexedDB) return;
   try {
-    if (typeof firebase === "undefined") throw new Error("Firebase no está cargado");
-    await firebase.auth().signInAnonymously();
-    firebaseReady = true;
-    subscribeSharedGallery();
-  } catch (err) {
-    console.error("No se pudo conectar con la galería compartida:", err);
-    cloudGalleryStarted = false;
-  }
+    const request = indexedDB.open(dbName, 1);
+    request.onupgradeneeded = (e) => {
+      db = e.target.result;
+      if (!db.objectStoreNames.contains("media")) {
+        db.createObjectStore("media", { keyPath: "id", autoIncrement: true });
+      }
+    };
+    request.onsuccess = (e) => {
+      db = e.target.result;
+      loadStoredMedia();
+    };
+  } catch(e) {}
 }
 
-function subscribeSharedGallery() {
-  firebase.firestore().collection("shared_gallery")
-    .orderBy("createdAt", "desc")
-    .onSnapshot(snapshot => {
-      const photos = document.getElementById("photoGallery");
-      const videos = document.getElementById("videoGallery");
-      if (!photos || !videos) return;
-
-      photos.innerHTML = "";
-      videos.innerHTML = "";
-
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        renderCloudMediaItem(data.type, data.url, doc.id);
-      });
-    }, err => console.error("Error sincronizando la galería:", err));
-}
-
-async function saveMedia(type, file) {
-  if (!file) return;
-
-  try {
-    if (!firebaseReady) await initCloudGallery();
-    if (!firebaseReady) throw new Error("No se pudo conectar con Firebase");
-
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
-    const path = `gallery/${Date.now()}_${Math.random().toString(36).slice(2)}_${safeName}`;
-
-    const storageRef = firebase.storage().ref(path);
-    const snapshot = await storageRef.put(file);
-    const url = await snapshot.ref.getDownloadURL();
-
-    await firebase.firestore().collection("shared_gallery").add({
-      url: url,
-      type: type,
-      storagePath: path,
-      fileName: file.name,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-  } catch (err) {
-    console.error(err);
-    alert("No se pudo guardar el archivo en la nube: " + (err.message || err));
-  }
-}
-
-async function removeMedia(id, element) {
-  try {
-    const docRef = firebase.firestore().collection("shared_gallery").doc(id);
-    const snap = await docRef.get();
-    const data = snap.data();
-
-    if (data && data.storagePath) {
-      await firebase.storage().ref(data.storagePath).delete().catch(() => {});
+function loadStoredMedia() {
+  if (!db) return;
+  const transaction = db.transaction(["media"], "readonly");
+  const store = transaction.objectStore("media");
+  store.openCursor().onsuccess = (e) => {
+    const cursor = e.target.result;
+    if (cursor) {
+      if (cursor.value.type === 'audio') {
+        renderAudioPlayer(cursor.value.file);
+      } else {
+        renderMediaItem(cursor.value.type, cursor.value.file, cursor.key);
+      }
+      cursor.continue();
     }
-
-    await docRef.delete();
-    if (element) element.remove();
-  } catch (err) {
-    console.error("No se pudo eliminar el archivo:", err);
-    alert("No se pudo eliminar el archivo.");
-  }
+  };
 }
 
-function renderCloudMediaItem(type, url, id) {
-  const isImage = type === "image";
-  const gallery = document.getElementById(isImage ? "photoGallery" : "videoGallery");
-  if (!gallery || !url) return;
-
-  const box = document.createElement("div");
-  box.className = isImage ? "photo-card" : "video-card";
-
-  const deleteBtn = document.createElement("button");
-  deleteBtn.className = "delete-btn";
-  deleteBtn.innerHTML = "×";
-  deleteBtn.onclick = e => {
-    e.stopPropagation();
-    removeMedia(id, box);
-  };
+function renderMediaItem(type, file, id) {
+  const isImage = type === 'image';
+  const gallery = document.getElementById(isImage ? 'photoGallery' : 'videoGallery');
+  const objectUrl = URL.createObjectURL(file);
+  
+  const box = document.createElement('div');
+  box.className = isImage ? 'photo-card' : 'video-card';
 
   if (isImage) {
-    const wrapper = document.createElement("div");
-    wrapper.className = "photo-card-img-wrapper";
+    const wrapper = document.createElement('div');
+    wrapper.className = 'photo-card-img-wrapper';
 
-    const img = document.createElement("img");
-    img.src = url;
-    img.loading = "lazy";
+    const img = document.createElement('img');
+    img.src = objectUrl;
     wrapper.appendChild(img);
     box.appendChild(wrapper);
-
-    const badge = document.createElement("div");
-    badge.className = "photo-badge";
-    badge.innerHTML = "🔍";
+    
+    const badge = document.createElement('div');
+    badge.className = 'photo-badge';
+    badge.innerHTML = '🔍';
     box.appendChild(badge);
 
-    box.onclick = () => openLightbox(url, false, "Nuestro recuerdo en foto ❤️");
+    box.onclick = () => openLightbox(objectUrl, false, "Nuestro recuerdo en foto ❤️");
   } else {
-    const container = document.createElement("div");
-    container.className = "video-container";
-
-    const video = document.createElement("video");
-    video.src = url;
-    video.controls = true;
-    video.preload = "metadata";
-
+    const container = document.createElement('div');
+    container.className = 'video-container';
+    const video = document.createElement('video');
+    video.src = objectUrl;
     container.appendChild(video);
     box.appendChild(container);
 
-    box.onclick = e => {
-      if (e.target.tagName !== "VIDEO") {
-        openLightbox(url, true, "Nuestro recuerdo en video 🎬");
-      }
-    };
+    box.onclick = () => openLightbox(objectUrl, true, "Nuestro recuerdo en video 🎬");
   }
 
-  box.appendChild(deleteBtn);
   gallery.appendChild(box);
 }
 
-document.getElementById("photos").addEventListener("change", e => {
-  [...e.target.files].forEach(file => saveMedia("image", file));
-  e.target.value = "";
-});
-
-document.getElementById("videos").addEventListener("change", e => {
-  [...e.target.files].forEach(file => saveMedia("video", file));
-  e.target.value = "";
-});
-
-document.getElementById("audio").addEventListener("change", e => {
-  const file = e.target.files[0];
-  if (!file) return;
-
-  saveMedia("audio", file);
-  renderAudioPlayer(file);
-  e.target.value = "";
-});
-
 function renderAudioPlayer(file) {
-  const p = document.getElementById("player");
-  const vinyl = document.getElementById("vinylDisc");
-  if (!p) return;
-
-  p.innerHTML = "";
-
-  const a = document.createElement("audio");
+  const p = document.getElementById('player');
+  const vinyl = document.getElementById('vinylDisc');
+  p.innerHTML = '';
+  
+  const a = document.createElement('audio');
   a.controls = true;
-  a.style.width = "100%";
-  a.src = typeof file === "string" ? file : URL.createObjectURL(file);
-
-  if (vinyl) {
-    a.onplay = () => vinyl.style.animationPlayState = "running";
-    a.onpause = () => vinyl.style.animationPlayState = "paused";
-  }
+  a.style.width = '100%';
+  a.src = URL.createObjectURL(file);
+  
+  a.onplay = () => vinyl.style.animationPlayState = 'running';
+  a.onpause = () => vinyl.style.animationPlayState = 'paused';
 
   p.appendChild(a);
 }
-
-initCloudGallery();
 </script>
 </body>
 </html>
